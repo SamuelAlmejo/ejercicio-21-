@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Identificador de Javascript</title>
+</head>
+<body>
+    <h2>Ejercicio 21</h2>
+    <p>Ingrese un identificador Javascript (No puede iniciar con un número)</p>
+    <form name="formularioAcceso" action="validado.html">
+        <input type="text" id="identificador" placeholder="Ingrese identificador JS">
+        <input type="text" id="identificador1" placeholder="Ingrese identificador JS">
+        <input type="button" value="Enviar" onclick="verificacion()">
+
+    </form>
+    <script>
+        function verificacion(){
+            let valor=document.getElementById('identificador').value;
+            let valor2=document.getElementById('identificador1').value;
+           if(valor=="" || valor2==""){
+            alert("Es obligatorio llenar todos los campos");
+           }else{ 
+            if(/^[a-zA-Z]\d*/.test(valor)||/^[_$][a-zA-Z]\d*/.test(valor)){
+                alert(valor+ ' es un identificador válido ');
+                 if(/^[a-zA-Z]\d*/.test(valor2)||/^[_$][a-zA-Z]\d*/.test(valor2)){
+                     alert(valor2+' es un identificador válido ');
+                     document.formularioAcceso.submit();             
+                 }else{
+                    alert(valor2+' es un identificador inválido ');
+                 }   
+            }else{
+                alert(valor+' es un identificador inválido ' );
+            } 
+          }
+        }
+    </script>
+</body>
+</html>
